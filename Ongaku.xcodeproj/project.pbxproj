@@ -11,27 +11,8 @@
 		42024DEA20145BFA00AEBA10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42024DE920145BFA00AEBA10 /* ViewController.swift */; };
 		42024DEC20145BFA00AEBA10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42024DEB20145BFA00AEBA10 /* Assets.xcassets */; };
 		42024DEF20145BFA00AEBA10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42024DED20145BFA00AEBA10 /* Main.storyboard */; };
-		42024DFA20145BFA00AEBA10 /* OngakuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42024DF920145BFA00AEBA10 /* OngakuTests.swift */; };
-		42024E0520145BFA00AEBA10 /* OngakuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42024E0420145BFA00AEBA10 /* OngakuUITests.swift */; };
 		42E0BC97242925AB0041F1C4 /* SwordRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 42E0BC96242925AB0041F1C4 /* SwordRPC */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		42024DF620145BFA00AEBA10 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42024DDC20145BF900AEBA10 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 42024DE320145BF900AEBA10;
-			remoteInfo = Ongaku;
-		};
-		42024E0120145BFA00AEBA10 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42024DDC20145BF900AEBA10 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 42024DE320145BF900AEBA10;
-			remoteInfo = Ongaku;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		422EEBC520146A340028F32C /* CopyFiles */ = {
@@ -52,12 +33,6 @@
 		42024DEB20145BFA00AEBA10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42024DEE20145BFA00AEBA10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42024DF020145BFA00AEBA10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42024DF520145BFA00AEBA10 /* OngakuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OngakuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		42024DF920145BFA00AEBA10 /* OngakuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngakuTests.swift; sourceTree = "<group>"; };
-		42024DFB20145BFA00AEBA10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42024E0020145BFA00AEBA10 /* OngakuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OngakuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		42024E0420145BFA00AEBA10 /* OngakuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngakuUITests.swift; sourceTree = "<group>"; };
-		42024E0620145BFA00AEBA10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42E0BC98242929B10041F1C4 /* Ongaku.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ongaku.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,20 +45,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		42024DF220145BFA00AEBA10 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42024DFD20145BFA00AEBA10 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,8 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				42024DE620145BFA00AEBA10 /* Ongaku */,
-				42024DF820145BFA00AEBA10 /* OngakuTests */,
-				42024E0320145BFA00AEBA10 /* OngakuUITests */,
 				42024DE520145BFA00AEBA10 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,8 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				42024DE420145BFA00AEBA10 /* Ongaku.app */,
-				42024DF520145BFA00AEBA10 /* OngakuTests.xctest */,
-				42024E0020145BFA00AEBA10 /* OngakuUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,24 +75,6 @@
 				42024DF020145BFA00AEBA10 /* Info.plist */,
 			);
 			path = Ongaku;
-			sourceTree = "<group>";
-		};
-		42024DF820145BFA00AEBA10 /* OngakuTests */ = {
-			isa = PBXGroup;
-			children = (
-				42024DF920145BFA00AEBA10 /* OngakuTests.swift */,
-				42024DFB20145BFA00AEBA10 /* Info.plist */,
-			);
-			path = OngakuTests;
-			sourceTree = "<group>";
-		};
-		42024E0320145BFA00AEBA10 /* OngakuUITests */ = {
-			isa = PBXGroup;
-			children = (
-				42024E0420145BFA00AEBA10 /* OngakuUITests.swift */,
-				42024E0620145BFA00AEBA10 /* Info.plist */,
-			);
-			path = OngakuUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,42 +101,6 @@
 			productReference = 42024DE420145BFA00AEBA10 /* Ongaku.app */;
 			productType = "com.apple.product-type.application";
 		};
-		42024DF420145BFA00AEBA10 /* OngakuTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42024E0C20145BFA00AEBA10 /* Build configuration list for PBXNativeTarget "OngakuTests" */;
-			buildPhases = (
-				42024DF120145BFA00AEBA10 /* Sources */,
-				42024DF220145BFA00AEBA10 /* Frameworks */,
-				42024DF320145BFA00AEBA10 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				42024DF720145BFA00AEBA10 /* PBXTargetDependency */,
-			);
-			name = OngakuTests;
-			productName = OngakuTests;
-			productReference = 42024DF520145BFA00AEBA10 /* OngakuTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		42024DFF20145BFA00AEBA10 /* OngakuUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42024E0F20145BFA00AEBA10 /* Build configuration list for PBXNativeTarget "OngakuUITests" */;
-			buildPhases = (
-				42024DFC20145BFA00AEBA10 /* Sources */,
-				42024DFD20145BFA00AEBA10 /* Frameworks */,
-				42024DFE20145BFA00AEBA10 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				42024E0220145BFA00AEBA10 /* PBXTargetDependency */,
-			);
-			name = OngakuUITests;
-			productName = OngakuUITests;
-			productReference = 42024E0020145BFA00AEBA10 /* OngakuUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,20 +115,6 @@
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 1140;
 						ProvisioningStyle = Automatic;
-					};
-					42024DF420145BFA00AEBA10 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = NP873NYDVX;
-						LastSwiftMigration = 1140;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 42024DE320145BF900AEBA10;
-					};
-					42024DFF20145BFA00AEBA10 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = NP873NYDVX;
-						LastSwiftMigration = 1140;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 42024DE320145BF900AEBA10;
 					};
 				};
 			};
@@ -246,8 +135,6 @@
 			projectRoot = "";
 			targets = (
 				42024DE320145BF900AEBA10 /* Ongaku */,
-				42024DF420145BFA00AEBA10 /* OngakuTests */,
-				42024DFF20145BFA00AEBA10 /* OngakuUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,20 +146,6 @@
 			files = (
 				42024DEC20145BFA00AEBA10 /* Assets.xcassets in Resources */,
 				42024DEF20145BFA00AEBA10 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42024DF320145BFA00AEBA10 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42024DFE20145BFA00AEBA10 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,36 +161,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		42024DF120145BFA00AEBA10 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42024DFA20145BFA00AEBA10 /* OngakuTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42024DFC20145BFA00AEBA10 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42024E0520145BFA00AEBA10 /* OngakuUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		42024DF720145BFA00AEBA10 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 42024DE320145BF900AEBA10 /* Ongaku */;
-			targetProxy = 42024DF620145BFA00AEBA10 /* PBXContainerItemProxy */;
-		};
-		42024E0220145BFA00AEBA10 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 42024DE320145BF900AEBA10 /* Ongaku */;
-			targetProxy = 42024E0120145BFA00AEBA10 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		42024DED20145BFA00AEBA10 /* Main.storyboard */ = {
@@ -504,96 +348,6 @@
 			};
 			name = Release;
 		};
-		42024E0D20145BFA00AEBA10 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = NP873NYDVX;
-				INFOPLIST_FILE = OngakuTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.spotlightishere.OngakuTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ongaku.app/Contents/MacOS/Ongaku";
-			};
-			name = Debug;
-		};
-		42024E0E20145BFA00AEBA10 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = NP873NYDVX;
-				INFOPLIST_FILE = OngakuTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.spotlightishere.OngakuTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ongaku.app/Contents/MacOS/Ongaku";
-			};
-			name = Release;
-		};
-		42024E1020145BFA00AEBA10 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = NP873NYDVX;
-				INFOPLIST_FILE = OngakuUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.spotlightishere.OngakuUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = Ongaku;
-			};
-			name = Debug;
-		};
-		42024E1120145BFA00AEBA10 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = NP873NYDVX;
-				INFOPLIST_FILE = OngakuUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.spotlightishere.OngakuUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = Ongaku;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -611,24 +365,6 @@
 			buildConfigurations = (
 				42024E0A20145BFA00AEBA10 /* Debug */,
 				42024E0B20145BFA00AEBA10 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		42024E0C20145BFA00AEBA10 /* Build configuration list for PBXNativeTarget "OngakuTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42024E0D20145BFA00AEBA10 /* Debug */,
-				42024E0E20145BFA00AEBA10 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		42024E0F20145BFA00AEBA10 /* Build configuration list for PBXNativeTarget "OngakuUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42024E1020145BFA00AEBA10 /* Debug */,
-				42024E1120145BFA00AEBA10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
