@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122FBE7E272CE49C00FA4346 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 122FBE7D272CE49C00FA4346 /* .swiftformat */; };
 		42024DE820145BFA00AEBA10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42024DE720145BFA00AEBA10 /* AppDelegate.swift */; };
 		42024DEA20145BFA00AEBA10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42024DE920145BFA00AEBA10 /* ViewController.swift */; };
 		42024DEC20145BFA00AEBA10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42024DEB20145BFA00AEBA10 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		122FBE7D272CE49C00FA4346 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		42024DE420145BFA00AEBA10 /* Ongaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ongaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42024DE720145BFA00AEBA10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42024DE920145BFA00AEBA10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		42024DDB20145BF900AEBA10 = {
 			isa = PBXGroup;
 			children = (
+				122FBE7D272CE49C00FA4346 /* .swiftformat */,
 				42024DE620145BFA00AEBA10 /* Ongaku */,
 				42024DE520145BFA00AEBA10 /* Products */,
 			);
@@ -146,6 +149,7 @@
 			files = (
 				42024DEC20145BFA00AEBA10 /* Assets.xcassets in Resources */,
 				42024DEF20145BFA00AEBA10 /* Main.storyboard in Resources */,
+				122FBE7E272CE49C00FA4346 /* .swiftformat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
