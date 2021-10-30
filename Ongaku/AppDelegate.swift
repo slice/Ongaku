@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
     func applicationDidFinishLaunching(_: Notification) {
-        statusItem.image = NSImage(named: "status_icon")
+        statusItem.button?.image = NSImage(named: "status_icon")
         if let menu = menu {
             statusItem.menu = menu
         }

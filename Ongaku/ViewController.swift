@@ -11,54 +11,28 @@ import Foundation
 import ScriptingBridge
 import SwordRPC
 
-// Adapted from
-// https://gist.github.com/pvieito/3aee709b97602bfc44961df575e2b696
-@objc enum iTunesEPlS: NSInteger {
-    case iTunesEPlSStopped = 0x6B50_5353
-    case iTunesEPlSPlaying = 0x6B50_5350
-    case iTunesEPlSPaused = 0x6B50_5370
-    // others omitted
-}
-
-@objc protocol iTunesTrack {
-    @objc optional var album: NSString { get }
-    @objc optional var artist: NSString { get }
-    @objc optional var duration: CDouble { get }
-    @objc optional var name: NSString { get }
-    @objc optional var playerState: iTunesEPlS { get }
-}
-
-@objc protocol iTunesApplication {
-    @objc optional var currentTrack: iTunesTrack { get }
-    @objc optional var playerPosition: CDouble { get }
-}
-
 class ViewController: NSViewController {
     // This is the Ongaku app ID.
     // You're welcome to change as you want.
     let rpc = SwordRPC(appId: "402370117901484042")
 
-    // The app's named Music.
-    // While com.apple.iTunes.playerInfo is sent as well,
-    // it's best to update now and plan for the future.
-    var appName = "com.apple.Music"
-    var assetName = ""
+    var musicBundleIdentifier = "com.apple.Music"
+    var assetName = "big_sur_logo"
+
+    var player: Player!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if #available(macOS 11.0, *) {
-            assetName = "big_sur_logo"
-        } else if #available(macOS 10.15, *) {
-            assetName = "music_logo"
-        } else {
-            appName = "com.apple.iTunes"
-            assetName = "itunes_logo"
+        do {
+            player = try ScriptingBridgePlayer()
+        } catch {
+            fatalError("failed to initialize scripting bridge player: \(error)")
         }
 
         // Callback for when RPC connects.
         rpc.onConnect { _ in
-            print("Connected to Discord.")
+            NSLog("connected to discord")
 
             DispatchQueue.main.async {
                 // Bye window :)
@@ -66,19 +40,34 @@ class ViewController: NSViewController {
             }
 
             // Populate information initially.
-            self.updateEmbed()
+            self.safelyUpdateRichPresence()
         }
 
-        // iTunes/Music send out a NSNotification upon various state changes.
-        // We should update the embed on these events.
-        DistributedNotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "\(appName).playerInfo"), object: nil, queue: nil, using: { _ in
-            self.updateEmbed()
-        })
+        // Music sends out a NSNotification upon various state changes.
+        // We should update the rich presence on these events.
+        DistributedNotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "\(musicBundleIdentifier).playerInfo"),
+            object: nil,
+            queue: nil
+        ) { _ in
+            NSLog("received playerInfo notification")
+            self.safelyUpdateRichPresence()
+        }
 
         rpc.connect()
     }
 
-    func updateEmbed() {
+    func safelyUpdateRichPresence() {
+        do {
+            try updateRichPresence()
+        } catch {
+            NSLog("failed to update rich presence: \(error)")
+        }
+    }
+
+    func updateRichPresence() throws {
+        NSLog("updating rich presence...")
+
         var presence = RichPresence()
 
         // By default, show a lack of state.
@@ -89,58 +78,49 @@ class ViewController: NSViewController {
         presence.assets.smallImage = "stop"
         presence.assets.smallText = "Currently stopped"
 
-        let itunes: AnyObject = SBApplication(bundleIdentifier: appName)!
-        let track = itunes.currentTrack
-        if track != nil {
-            // Something's doing something, player can't be nil.. right?
-            let playerState = itunes.playerState!
+        let state = try player.state()
+        guard let track = try player.nowPlaying(), state != .stopped else {
+            rpc.setPresence(presence)
+            return
+        }
 
-            // Something's marked as playing, time to see..
-            let sureTrack = track!
+        // Always set image.
+        presence.assets.largeImage = assetName
 
-            // Always set image.
-            presence.assets.largeImage = assetName
+        let album = track.album ?? "Unknown Album"
+        let artist = track.artist ?? "Unknown Artist"
+        presence.state = "\(album) - \(artist)"
+        presence.assets.largeText = track.title
 
-            switch playerState {
-            case .iTunesEPlSPlaying:
-                presence.details = "\(sureTrack.name!)"
-                presence.state = "\(sureTrack.album!) - \(sureTrack.artist!)"
-                presence.assets.largeText = "\(sureTrack.name!)"
-                presence.assets.smallImage = "play"
-                presence.assets.smallText = "Actively playing"
+        switch state {
+        case .playing:
+            presence.details = "\(track.title)"
+            presence.assets.smallImage = "play"
+            presence.assets.smallText = "Actively playing"
 
-                // The following needs to be in milliseconds.
-                let trackDuration = Double(round(sureTrack.duration!))
-                let trackPosition = Double(round(itunes.playerPosition!))
-                let currentTimestamp = Date()
-                let trackSecondsRemaining = trackDuration - trackPosition
+            // The following needs to be in milliseconds.
+            let trackDuration = Double(track.duration)
+            let trackPosition = Double(try player.position())
+            let trackSecondsRemaining = trackDuration - trackPosition
 
-                let startTimestamp = currentTimestamp - trackPosition
-                let endTimestamp = currentTimestamp + trackSecondsRemaining
+            let currentTimestamp = Date()
+            let startTimestamp = currentTimestamp - trackPosition
+            let endTimestamp = currentTimestamp + trackSecondsRemaining
 
-                // Go back (position amount)
-                presence.timestamps.start = Date(timeIntervalSince1970: startTimestamp.timeIntervalSince1970 * 1000)
+            // Go back (position amount)
+            presence.timestamps.start = Date(timeIntervalSince1970: startTimestamp.timeIntervalSince1970 * 1000)
 
-                // Add time remaining
-                presence.timestamps.end = Date(timeIntervalSince1970: endTimestamp.timeIntervalSince1970 * 1000)
-            case .iTunesEPlSPaused:
-                presence.details = "Paused - \(sureTrack.name!)"
-                presence.state = "\(sureTrack.album!) - \(sureTrack.artist!)"
-                presence.assets.largeImage = assetName
-                presence.assets.largeText = "\(sureTrack.name!)"
-                presence.assets.smallImage = "pause"
-                presence.assets.smallText = "Currently paused"
-            default:
-                break
-            }
+            // Add time remaining
+            presence.timestamps.end = Date(timeIntervalSince1970: endTimestamp.timeIntervalSince1970 * 1000)
+        case .paused:
+            presence.details = "Paused - \(track.title)"
+            presence.assets.smallImage = "pause"
+            presence.assets.smallText = "Currently paused"
+        case .stopped:
+            // Unreachable.
+            break
         }
 
         rpc.setPresence(presence)
-    }
-
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
-        }
     }
 }
